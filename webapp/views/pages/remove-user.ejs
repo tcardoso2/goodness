@@ -1,0 +1,34 @@
+<div id="remove-user" v-cloak>
+  <div class="container">
+    <h1>Remove User</h1>
+    <hr/>
+    <ajax-form action="deleteUser" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="id">Id</label>
+            <p>{{formData.id}}</p>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="full-name">Full name</label>
+            <p>{{formData.fullName}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <p class="text-danger" v-if="cloudError">An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</p>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group text-right">
+            <a class="btn btn-outline-info" href="/users">Cancel</a>
+            <ajax-button type="submit" :syncing="syncing" class="btn btn-dark">Remove this user</ajax-button>
+          </div>
+        </div>
+      </div>
+    </ajax-form>
+  </div>
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

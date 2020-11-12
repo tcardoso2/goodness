@@ -1,0 +1,36 @@
+<div id="users" v-cloak>
+  <div class="container">
+    <h1>Users</h1>
+    <hr/>
+    <div class="">
+      <a class="btn btn-info" href="/add-user">Add a new user</a>
+    </div>
+    <div class="table" v-for="item in members">
+    <hr/>
+	    <div class="row">
+	      <div class="col-3">Name:</div>
+	      <div class="col"><strong>{{item.fullName}}</strong><i v-if="item.id == me.id"> (you)</i></div>
+	      <div class="col-sm-6">
+	        <span class="float-sm-right" v-if="item.id == me.id">
+	          <a class="btn btn-sm btn-outline-info account-settings-button" href="/account">My Account</a>
+	        </span>
+	        <span class="float-sm-right" v-if="item.id != me.id">
+	          <a v-if="me.isSuperAdmin" class="btn btn-sm btn-outline-info account-settings-button" v-bind:href="'/remove-user/' + item.id">Remove User...</a>
+	        </span>
+	      </div>
+	    </div>
+	    <div class="row" v-if="me.isSuperAdmin || item.id == me.id">
+	      <div class="col-3">Is Super Admin:</div>
+	      <div class="col" v-if="item.id == me.id"><strong>{{ item.isSuperAdmin }}</strong></div>
+	    </div>
+	    <div class="row">
+	      <div class="col-3">Email:</div>
+	      <div class="col">
+	        <strong :class="[item.emailStatus === 'unconfirmed' || item.emailStatus === 'change-requested' ? 'text-muted' : '']">{{item.emailChangeCandidate ? item.emailChangeCandidate : item.emailAddress}}</strong>
+	        <span v-if="item.emailStatus === 'unconfirmed' || item.emailStatus === 'change-requested'" class="badge badge-pill badge-warning">Unverified</span>
+	      </div>
+	    </div>
+	</div>
+  </div>
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

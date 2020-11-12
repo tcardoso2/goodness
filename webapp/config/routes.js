@@ -33,6 +33,17 @@ module.exports.routes = {
   'GET /account/password':   { action: 'account/view-edit-password' },
   'GET /account/profile':    { action: 'account/view-edit-profile' },
 
+  //  ╔═╗╦ ╦╔═╗╔╦╗╔═╗╔╦╗
+  //  ║  ║ ║╚═╗ ║ ║ ║║║║
+  //  ╚═╝╚═╝╚═╝ ╩ ╚═╝╩ ╩
+  'GET /integration-points': { action: 'view-integration-points' },
+
+  'GET /messages':           { action: 'view-messages' },
+
+  'GET /users':              { action: 'view-users' },
+  'GET /remove-user/:id':    { action: 'view-remove-user' },
+  'GET /add-user':           { action: 'view-add-user' },
+
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
@@ -61,5 +72,10 @@ module.exports.routes = {
   'POST  /api/v1/entrance/send-password-recovery-email': { action: 'entrance/send-password-recovery-email' },
   'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login' },
   'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
+  //  ╔═╗╦ ╦╔═╗╔╦╗╔═╗╔╦╗
+  //  ║  ║ ║╚═╗ ║ ║ ║║║║
+  //  ╚═╝╚═╝╚═╝ ╩ ╚═╝╩ ╩
+  'POST  /api/v1/delete-user':                            { action: 'delete-user' },
+  'POST  /api/v1/add-user':                               { action: 'add-user' }
 
 };
