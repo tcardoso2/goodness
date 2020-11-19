@@ -21,7 +21,7 @@ module.exports = {
 
     sails.log("Executing function...");
 
-    let users = await User.find({ deleted: false });
+    let users = await User.find(/*{ deleted: false }*/);
     sails.log(`Found ${users.length} users.`);
     // Respond with view.
     return {
