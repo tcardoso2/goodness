@@ -1,0 +1,30 @@
+{
+    "feature": {
+        "id": "manage-users",
+        "files": [
+            "assets/js/pages/add-user.page.js",
+            "assets/js/pages/remove-user.page.js",
+            "assets/js/pages/users.page.js",
+            "api/controllers/add-user.js",
+            "api/controllers/delete-user.js",
+            "api/controllers/view-add-user.js",
+            "api/controllers/view-users.js",
+            "api/controllers/view-remove-users.js",
+            "views/pages/add-user.ejs",
+            "views/pages/remove-user.ejs"
+        ],
+        "routes": {
+            "file" : "config/routes.js",
+            "values" : {
+                "GET /add-user": { "action": "view-add-user" }
+            }
+        },
+        "cloud.setup": {
+            "file": "assets/js/cloud.setup.js",
+            "values": {
+                "addUser":{"verb":"POST","url":"/api/v1/add-user","args":["emailAddress","password","fullName"]},
+                "deleteUser":{"verb":"POST","url":"/api/v1/delete-user","args":["id"]}
+            }
+        }
+    }
+}

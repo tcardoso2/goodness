@@ -1,7 +1,5 @@
 <div id="add-user" v-cloak>
-  <div class="container">
-    <h1>Add a New User</h1>
-    <hr/>
+  <Container title="Add a New User">
     <ajax-form action="addUser" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm">
       <div class="row">
         <div class="col-sm-6">
@@ -46,6 +44,6 @@
         </div>
       </div>
     </ajax-form>
-  </div>
+  </Container>
 </div>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
