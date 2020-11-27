@@ -44,6 +44,7 @@ module.exports.routes = {
   'GET /remove-user/:id':    { action: 'view-remove-user' },
   'GET /add-user':           { action: 'view-add-user' },
 
+  "GET /worldpage":          { action: 'view-worldpage' },
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗

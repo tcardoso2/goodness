@@ -1,0 +1,12 @@
+{
+    "feature": {
+        "id": "dynamic-layout",
+        "files": [
+            "views/layouts/dynamic-layout.ejs"
+        ],
+        "routes": {
+        },
+        "cloud.setup": {
+        }
+    }
+}

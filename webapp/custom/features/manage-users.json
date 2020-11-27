@@ -11,7 +11,10 @@
             "api/controllers/view-users.js",
             "api/controllers/view-remove-users.js",
             "views/pages/add-user.ejs",
-            "views/pages/remove-user.ejs"
+            "views/pages/remove-user.ejs",
+            "assets/styles/pages/users.less",
+            "assets/styles/pages/add-user.less",
+            "assets/styles/pages/remove-user.less"
         ],
         "routes": {
             "file" : "config/routes.js",

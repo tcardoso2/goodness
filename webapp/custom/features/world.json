@@ -1,0 +1,26 @@
+{
+    "feature": {
+        "id": "world",
+        "files": [
+            "assets/js/components/world.component.js",
+            "assets/js/pages/world.page.js",
+            "assets/styles/pages/world.less",
+            "assets/styles/components/world.less",
+            "views/pages/world.ejs",
+            "api/controllers/world_WIP.js",
+            "api/controllers/view-world.js"
+        ],
+        "routes": {
+            "file" : "config/routes.js",
+            "values" : {
+                "GET /world": { "action": "view-world" }
+            }
+        },
+        "cloud.setup": {
+            "file": "assets/js/cloud.setup.js",
+            "values": {
+                "getWorld":{"verb":"POST","url":"/api/v1/get-world","args":[]}
+            }
+        }
+    }
+}

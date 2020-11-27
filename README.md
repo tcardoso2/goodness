@@ -1,5 +1,6 @@
 Home of a future repository
 
+- v.0.1.3: (WIP) Creating world page/component (Currently buggy) - next step is to click, detect event, and send socket message to get the files which constitute it - strech goal, to be able to update it.
 - v.0.1.2: continuing add-user custom feature:
     - add view-add-user views and others
     - continuing on the feature specification
