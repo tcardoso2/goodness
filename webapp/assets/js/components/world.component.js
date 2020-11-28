@@ -33,7 +33,7 @@ parasails.registerComponent('world', {
   //  ╩ ╩ ╩ ╩ ╩╩═╝
   template: `
   <div v-bind:style="{ display: flex, height: window_height + 'px' }">
-    <div class="world" style="width:100%; height:100%; background-color:black;color:white">
+    <div class="world">
       <slot></slot>
     </div><!-- /.world -->
   </div>
