@@ -18,7 +18,12 @@ module.exports = {
 
 
   fn: async function () {
-
+    
+    let params = this.req.allParams();
+    if(params.version) {
+      sails.log(`Showing history version page: ${params.version}`);
+      return this.res.view('pages/.history/worldpage/' + params.version.trim());
+    }
     // Respond with view.
     return {};
 

@@ -45,6 +45,7 @@ module.exports.routes = {
   'GET /add-user':           { action: 'view-add-user' },
 
   "GET /worldpage":          { action: 'view-worldpage' },
+  "GET /worldpage/:version": { action: 'view-worldpage' },
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
