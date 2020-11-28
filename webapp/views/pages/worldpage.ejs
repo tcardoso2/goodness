@@ -1,6 +1,6 @@
 <div id="worldpage" v-cloak>
   <World>
-    <div class="scene">
+    <div class="stage">
       <div class="floor">
         <div class="tile">
         </div>
@@ -21,6 +21,38 @@
         <div class="tile" style="left:400px;top:200px;">
         </div>
       </div>
+    </div>
+    <div class="panel">
+      <p>
+        <label>
+          perspective
+          <input class="perspective-range" type="range" min="1" max="1000" value="400" data-units="px" />
+        </label>
+      </p>
+      <p>
+        <label>
+          perspective-origin x
+          <input class="origin-x-range" type="range" min="0" max="100" value="50" data-units="%" />
+        </label>
+      </p>
+      <p>
+        <label>
+          perspective-origin y
+          <input class="origin-y-range" type="range" min="0" max="100" value="50" data-units="%" />
+        </label>
+      </p>
+      <p>
+        <label>
+          Spin cube
+          <input class="spin-cube-checkbox" type="checkbox" />
+        </label>
+      </p>
+      <p>
+        <label>
+          Backface visible
+          <input class="backface-checkbox" type="checkbox" checked />
+        </label>
+      </p>  
     </div>
   </World>
 </div>

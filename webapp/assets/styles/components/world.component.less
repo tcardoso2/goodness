@@ -8,9 +8,13 @@
   background-color: black;
   .world {
     color: white;
-    .scene {
-      // 3d 
-      perspective: 700px;
+    .stage {
+      // width and height must be set to an abs valuefor perspective-origin to work, make this dynamic!
+      width: 1000px;
+      height: 400px;
+      // 3d perpective
+      perspective: 550px;
+      perspective-origin: 50% 0%;
       .floor {
         transform-style: preserve-3d;
         transform: translateZ(-100px);
@@ -30,6 +34,11 @@
           left: 200px;
         }            
       }
+    }
+    .panel {
+      position: absolute;
+      right: 0px;
+      margin-right:20px;
     }
   }
 }
