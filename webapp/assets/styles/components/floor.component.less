@@ -1,0 +1,24 @@
+/**
+ * <Floor>
+ *
+ * Floor component styling.
+ */
+
+[parasails-component='floor'] {
+  transform-style: preserve-3d;
+  .tile {
+    height: 100px;
+    width: 100px;
+    background-color: green;
+    border: 1px darkslategrey solid;
+    // 3d transforms
+    transform: translateZ(100px);
+    -webkit-transform: translateZ(100px);
+    /*transform: rotateX(45deg);
+    -webkit-transform: rotateX(45deg);
+    transform: rotateZ(45deg);
+    -webkit-transform: rotateZ(45deg);*/
+    position: absolute;
+    left: 200px;
+  }
+}

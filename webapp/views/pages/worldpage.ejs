@@ -1,18 +1,36 @@
 <div id="worldpage" v-cloak>
   <World>
-    Example 2: World (version 2) - Tile Component
+    Example 2: World (version 2) - Floor Component
     <div class="stage">
-      <div class="floor">
+      <Floor distance="40">
         <!--Tile Component instead-->
-        <div class="tile" style="left:300px;top:200px;">
+         <div class="tile" style="left:300px;">
         </div>
-        <div class="tile" style="left:400px;top:200px;">
+        <div class="tile" style="left:400px;">
         </div>
-        <div class="tile" style="top:100px;top:200px;">
+        <div class="tile" style="left:200px">
         </div>
-      </div>
+        <div class="tile" style="left:300px;top:100px">
+        </div>
+        <div class="tile" style="left:400px;top:100px">
+        </div>
+        <div class="tile" style="left:200px;top:100px">
+        </div>
+        <div class="tile" style="left:300px;top:200px">
+        </div>
+        <div class="tile" style="left:400px;top:200px">
+        </div>
+        <div class="tile" style="left:200px;top:200px">
+        </div>
+      </Floor>
     </div>
     <div class="panel">
+      <p>
+        <label>
+          floor distance (z)
+          <input class="floor-distance-range" type="range" min="1" max="1000" value="100" data-units="px" />
+        </label>
+      </p>
       <p>
         <label>
           perspective

@@ -1,25 +1,27 @@
+<!--Inline Less is required since the original world page has changed since the first version-->
+
 <div id="worldpage" v-cloak>
   <World>
     Example 1: World (version 1) - basic inline HTML
     <div class="stage">
-      <div class="floor">
-        <div class="tile">
+      <div class="floor" style="transform-style: preserve-3d; transform: translateZ(-100px);">
+        <div class="tile" style="left:200px;height: 100px;width: 100px;background-color: green;border: 1px white dotted;transform: rotateX(-90deg) translateZ(100px);-webkit-transform: rotateX(-90deg) translateZ(100px);position:absolute;">
         </div>
-        <div class="tile" style="left:300px">
+        <div class="tile" style="left:300px;height: 100px;width: 100px;background-color: green;border: 1px white dotted;transform: rotateX(-90deg) translateZ(100px);-webkit-transform: rotateX(-90deg) translateZ(100px);position:absolute;">
         </div>
-        <div class="tile" style="left:400px">
+        <div class="tile" style="left:400px;height: 100px;width: 100px;background-color: green;border: 1px white dotted;transform: rotateX(-90deg) translateZ(100px);-webkit-transform: rotateX(-90deg) translateZ(100px);position:absolute;">
         </div>
-        <div class="tile" style="top:100px;">
+        <div class="tile" style="left:200px;top:100px;height: 100px;width: 100px;background-color: green;border: 1px white dotted;transform: rotateX(-90deg) translateZ(100px);-webkit-transform: rotateX(-90deg) translateZ(100px);position:absolute;">
         </div>
-        <div class="tile" style="left:300px;top:100px;">
+        <div class="tile" style="left:300px;top:100px;height: 100px;width: 100px;background-color: green;border: 1px white dotted;transform: rotateX(-90deg) translateZ(100px);-webkit-transform: rotateX(-90deg) translateZ(100px);position:absolute;">
         </div>
-        <div class="tile" style="left:400px;top:100px;">
+        <div class="tile" style="left:400px;left:400px;top:100px;height: 100px;width: 100px;background-color: green;border: 1px white dotted;transform: rotateX(-90deg) translateZ(100px);-webkit-transform: rotateX(-90deg) translateZ(100px);position:absolute;">
         </div>
-        <div class="tile" style="top:200px;">
+        <div class="tile" style="left:200px;top:200px;height: 100px;width: 100px;background-color: green;border: 1px white dotted;transform: rotateX(-90deg) translateZ(100px);-webkit-transform: rotateX(-90deg) translateZ(100px);position:absolute;">
         </div>
-        <div class="tile" style="left:300px;top:200px;">
+        <div class="tile" style="left:300px;left:300px;top:200px;height: 100px;width: 100px;background-color: green;border: 1px white dotted;transform: rotateX(-90deg) translateZ(100px);-webkit-transform: rotateX(-90deg) translateZ(100px);position:absolute;">
         </div>
-        <div class="tile" style="left:400px;top:200px;">
+        <div class="tile" style="left:400px;top:200px;height: 100px;width: 100px;background-color: green;border: 1px white dotted;transform: rotateX(-90deg) translateZ(100px);-webkit-transform: rotateX(-90deg) translateZ(100px);position:absolute;">
         </div>
       </div>
     </div>
@@ -45,4 +47,5 @@
     </div>
   </World>
 </div>
+
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

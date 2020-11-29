@@ -1,20 +1,20 @@
 /**
- * <World>
+ * <Floor>
  * -----------------------------------------------------------------------------
- * A World.
+ * A Floor, which is inside a World and can have many 3D tiles in it.
  *
  * @type {Component}
  *
- * @slot default                     [world contents]
+ * @slot default                     [Floor tiles]
  * -----------------------------------------------------------------------------
  */
 
-parasails.registerComponent('world', {
+parasails.registerComponent('floor', {
   //  ╔═╗╦═╗╔═╗╔═╗╔═╗
   //  ╠═╝╠╦╝║ ║╠═╝╚═╗
   //  ╩  ╩╚═╚═╝╩  ╚═╝
   props: [
-    //…
+    'distance'
   ],
 
   //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
@@ -22,9 +22,9 @@ parasails.registerComponent('world', {
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: function (){
     return {
-      _something_for_future: true,
-      window_height: window.innerHeight,
-      flex: 'flex'
+      window_height: window.innerHeight*0.8,
+      flex: 'flex',
+      transformValue: 'rotateX(-90deg) translateZ(' + (this.distance ? this.distance : 10) +'px)'
     };
   },
 
@@ -32,11 +32,9 @@ parasails.registerComponent('world', {
   //  ╠═╣ ║ ║║║║
   //  ╩ ╩ ╩ ╩ ╩╩═╝
   template: `
-  <div v-bind:style="{ display: flex, height: window_height + 'px' }">
-    <div class="world">
+  <div class="floor" v-bind:style="{ display: flex, height: window_height + 'px'}">
       <slot></slot>
-    </div><!-- /.world -->
-  </div>
+  </div><!-- /.floor -->
   `,
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -46,6 +44,10 @@ parasails.registerComponent('world', {
     //…
   },
   mounted: async function(){
+    $(this.$el).css({
+      'transform': this.transformValue,
+      '-webkit-transform': this.transformValue
+    });
     // range display
     function RangeDisplay( input ) {
       this.input = input;
@@ -64,54 +66,27 @@ parasails.registerComponent('world', {
     RangeDisplay.prototype.update = function() {
       this.output.textContent = this.input.value + this.units;
     };
-    
-    /* ==================== init ==================== */
-    
-    // init RangeDisplays
-    var ranges = document.querySelectorAll('input[type="range"]');
-    for ( var i=0; i < ranges.length; i++ ) {
-      new RangeDisplay( ranges[i] );
-    }
 
-    // perspective
-    var stage = document.querySelector('.stage');
-    var originX = 50;
-    var originY = 50;
+    var floor = document.querySelector('.floor');
 
-    var perspectiveRange = document.querySelector('.perspective-range');
-    var perspectiveDisplay = perspectiveRange.parentNode.querySelector('.range-display');
-    perspectiveRange.onchange = perspectiveRange.oninput = function() {
-      var value = perspectiveRange.value + 'px';
+    //floor distance
+    var floorDistanceRange = document.querySelector('.floor-distance-range');
+    var floorDistanceDisplay = floorDistanceRange.parentNode.querySelector('.range-display');
+    floorDistanceRange.onchange = floorDistanceRange.oninput = function() {
+      var value = floorDistanceRange.value + 'px';
       // set to none at max
-      if(perspectiveDisplay){
-        if ( value == '2000px' ) {
+      if(floorDistanceDisplay){
+        if ( value == '1000px' ) {
           value = 'none';
-          perspectiveDisplay.textContent = 'none';
+          floorDistanceDisplay.textContent = 'none';
         }  
       }
-      stage.style.perspective = value;
+      //For now, hard-coding the transform on the client-side
+      floor.style.transform = `rotateX(-90deg) translateZ(${value}x)`;
+      floor.style.webkitTransform = `rotateX(-90deg) translateZ(${value}x)`;
     };
-    perspectiveRange.onchange();
+    floorDistanceRange.onchange();
 
-    function updatePerspectiveOrigin() {
-      stage.style.perspectiveOrigin = originX + '% ' + originY + '%';
-    }
-
-    // origin x
-    var originXRange = document.querySelector('.origin-x-range');
-    originXRange.onchange = originXRange.oninput = function() {
-      originX = originXRange.value;
-      updatePerspectiveOrigin();
-    };
-    originXRange.onchange();
-
-    // origin y
-    var originYRange = document.querySelector('.origin-y-range');
-    originYRange.onchange = originYRange.oninput = function() {
-      originY = originYRange.value;
-      updatePerspectiveOrigin();
-    };
-    originYRange.onchange();
   },
   beforeDestroy: function() {
     //…
@@ -122,9 +97,10 @@ parasails.registerComponent('world', {
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
 
-    clickWorld: async function() {
-      console.log('Clicked world! (Make this a DOM event! - to implement/test');
-    }
+    click: async function(){
+      this.$emit('click');
+      alert('Clicked on floor!')
+    },
 
   }
 });

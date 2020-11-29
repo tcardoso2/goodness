@@ -1,0 +1,13 @@
+{
+    "feature": {
+        "id": "floor",
+        "requires": "world",
+        "files": [
+            "assets/js/components/floor.component.js",
+            "assets/styles/components/floor.less"
+        ],
+        "entries": {
+            "./assets/styles/importer.less": "@import 'components/floor.component.less';"
+        }
+    }
+}
