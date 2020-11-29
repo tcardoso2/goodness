@@ -6,6 +6,7 @@
 
 [parasails-component='floor'] {
   transform-style: preserve-3d;
+  /*animation: floor_rotate 4s infinite;*/
   .tile {
     height: 100px;
     width: 100px;
@@ -14,11 +15,19 @@
     // 3d transforms
     transform: translateZ(100px);
     -webkit-transform: translateZ(100px);
-    /*transform: rotateX(45deg);
-    -webkit-transform: rotateX(45deg);
-    transform: rotateZ(45deg);
-    -webkit-transform: rotateZ(45deg);*/
     position: absolute;
-    left: 200px;
+    left: 0px;
+    animation-name: tiles_color;
+    animation-duration: 4s;
   }
+}
+
+@keyframes tiles_color {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+@keyframes floor_rotate {
+  0% { transform: rotateX(-90deg) rotateZ(0deg) translateZ(40px); }
+100% { transform: rotateX(-90deg) rotateZ(360deg) translateZ(40px); }
 }
